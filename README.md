@@ -6,5 +6,5 @@ run `python -m http.server 8000` to start a server
 
 @TO-DO
 
-- [ ] Demo for Displaying Slides
+- [x] Demo for Displaying Slides
 - [ ] Demo for Adding Slides
