@@ -1,0 +1,35 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    display: inline-block;
+    width: 80%;
+    background-color: lightpink;
+    min-height: 100vh;
+}
+
+aside {
+    width: 20%;
+    background-color: lightblue;
+    min-height: 100vh;
+    float: right;
+    text-align: center;
+}
+
+#create-slide {
+    font-size: 21px;
+    margin-top: 30px;
+    padding: 15px;
+}
+#slides {
+    padding: 15px;
+}
+.slide {
+    background-color: antiquewhite;
+    width: 300px;
+    height: 200px;
+    margin: 15px;
+    display: inline-block;
+}
