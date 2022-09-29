@@ -1,14 +1,15 @@
-// const slides = document.getElementById('slides');
 const createSlides = document.getElementById('create-slide');
+let slideNumber = 1;
 
 createSlides.addEventListener('click', function() {
 
-let newDiv = document.createElement("div");
-newDiv.classList.add('slide');
-document.getElementById('slides').appendChild(newDiv);
+    const textNode = document.createTextNode("Slide " + slideNumber);
+    slideNumber++
+    let newDiv = document.createElement("div");
+    newDiv.appendChild(textNode);
 
-//document.getElementById('slides').appendChild(document.createElement("div"));
-//document.body.appendChild(document.createElement("div"));
+    newDiv.classList.add('slide');
 
+    document.getElementById('thumbnails').appendChild(newDiv);
 
 })
