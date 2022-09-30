@@ -12,4 +12,4 @@ run `python -m http.server 8000` to start a server
 
 Made updates to the create slides demo, but they are not appearing? Think its a issue with gitpod?
 
-- [] Demo for changing styling
+- [x] Demo for changing styling
