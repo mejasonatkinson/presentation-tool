@@ -18,6 +18,6 @@ Made updates to the create slides demo, but they are not appearing? Think its a 
 
 - [ ] Demo for Slide Designs
 
-- [ ] Demo of word/charactor count limit
+- [x] Demo of charactor count limit
 
 - [x] [Death by Powerpoint Review](DeathByPowerpoint.md)
