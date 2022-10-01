@@ -20,4 +20,4 @@ Made updates to the create slides demo, but they are not appearing? Think its a 
 
 - [ ] Demo of word/charactor count limit
 
-- [ ] Review; Death by Powerpoint https://www.youtube.com/watch?v=Iwpi1Lm6dFo
+- [x] [Death by Powerpoint Review](DeathByPowerpoint.md)
