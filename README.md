@@ -16,7 +16,7 @@ Made updates to the create slides demo, but they are not appearing? Think its a 
 
 - [x] Demo for Slide Storage
 
-- [ ] Demo for Slide Designs
+- [x] Demo for Slide Designs
 
 - [x] Demo of charactor count limit
 
