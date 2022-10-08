@@ -1,14 +1,43 @@
 const createSlides = document.getElementById('create-slide');
+const slideContainer = document.getElementById('slide-container');
 
 // Store slides
 let slides = [];
+
+let slideNumberID = 1;
+
+function createThumbnailSlide(slide) {
+
+    let newDiv = document.createElement("div");
+    
+    newDiv.classList.add('slide');
+    newDiv.setAttribute('id', slide.id + "-thumbnail");
+
+    document.getElementById('thumbnails').appendChild(newDiv);
+
+    const textNode = document.createTextNode(slide.content.text);
+
+    newDiv.appendChild(textNode);
+
+}
+
+function displayThumbnailSlide (slide) {
+
+    document.getElementById(slide.id + "-thumbnail").addEventListener('click', function(event) {
+
+        slideContainer.textContent = slide.content.text;
+        newDiv.classList.add(slide.layout);
+
+    });
+
+}
 
 // On Click, create slide and add it to slides
 createSlides.addEventListener('click', function() {
 
     // create slide
     let slide = {
-        id: "default",
+        id: "slide-" + slideNumberID,
         layout: "default",
         styling: {
             fontSize: "default",
@@ -16,11 +45,19 @@ createSlides.addEventListener('click', function() {
             backgroundColor: "default",
         },
         content: {
-            text: "Placeholder",
+            text: "Placeholder" + slideNumberID,
         }
     };
 
     // add slide to slides
     slides.push(slide);
+
+    //create thumbnail Slide
+    createThumbnailSlide(slide);
+
+    //display thumbnail Slide in more detail
+    displayThumbnailSlide(slide);
+
+    slideNumberID++;
 
 });
