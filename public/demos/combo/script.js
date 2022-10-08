@@ -1,10 +1,20 @@
 const createSlides = document.getElementById('create-slide');
 const slideContainer = document.getElementById('slide-container');
 
+const backgroundColour = document.getElementById('background-colour');
+
 // Store slides
 let slides = [];
 
 let slideNumberID = 1;
+
+
+function updateStyling(slide) {
+    backgroundColour.addEventListener('change', function(event) {
+        slide.styling.backgroundColor = event.target.value;
+        document.getElementById(slide.id + "-thumbnail").style.color = event.target.value;
+    })    
+}
 
 function createThumbnailSlide(slide) {
 
@@ -26,9 +36,13 @@ function displayThumbnailSlide (slide) {
     document.getElementById(slide.id + "-thumbnail").addEventListener('click', function(event) {
 
         slideContainer.textContent = slide.content.text;
-        newDiv.classList.add(slide.layout);
+        slideContainer.classList.add(slide.layout);
+
+        // slideContainer.style.backgroundColor = slide.styling.backgroundColor;
 
     });
+
+    updateStyling(slide);
 
 }
 
@@ -52,6 +66,9 @@ createSlides.addEventListener('click', function() {
     // add slide to slides
     slides.push(slide);
 
+    slideContainer.textContent = slide.content.text;
+    slideContainer.classList.add(slide.layout);
+
     //create thumbnail Slide
     createThumbnailSlide(slide);
 
@@ -60,4 +77,8 @@ createSlides.addEventListener('click', function() {
 
     slideNumberID++;
 
+    console.log(slides);
+
 });
+
+
