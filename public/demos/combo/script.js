@@ -1,84 +1,65 @@
-const createSlides = document.getElementById('create-slide');
+let slides = [
+    {
+        id: "slide-1",
+        layout: "full-text",
+        styling: {
+            fontSize: "21px",
+            fontFamily: "sans-serif",
+            backgroundColor: "red",
+        },
+        content: {
+            text: "Placeholder 1",
+        }
+    },
+    {
+        id: "slide-2",
+        layout: "split-left",
+        styling: {
+            fontSize: "21px",
+            fontFamily: "sans-serif",
+            backgroundColor: "blue",
+        },
+        content: {
+            text: "Placeholder 2",
+            image: "https://via.placeholder.com/150x150",
+        }
+    },
+];
+
 const slideContainer = document.getElementById('slide-container');
+let firstSlide = 1;
 
-const backgroundColour = document.getElementById('background-colour');
-
-// Store slides
-let slides = [];
-
-let slideNumberID = 1;
-
-
-function updateStyling(slide) {
-    backgroundColour.addEventListener('change', function(event) {
-        slide.styling.backgroundColor = event.target.value;
-        document.getElementById(slide.id + "-thumbnail").style.color = event.target.value;
-    })    
-}
-
-function createThumbnailSlide(slide) {
-
-    let newDiv = document.createElement("div");
+slides.forEach(slide => {
     
+    const newDiv = document.createElement("div");
+
     newDiv.classList.add('slide');
-    newDiv.setAttribute('id', slide.id + "-thumbnail");
+    newDiv.classList.add(slide.layout);
+
+    newDiv.setAttribute('id', slide.id);
+
+    newDiv.style.fontSize = slide.styling.fontSize;
+    newDiv.style.fontFamily = slide.styling.fontFamily;
+    newDiv.style.backgroundColor = slide.styling.backgroundColor;
+
+    newDiv.appendChild(document.createTextNode(slide.content.text));
 
     document.getElementById('thumbnails').appendChild(newDiv);
 
-    const textNode = document.createTextNode(slide.content.text);
+    if (firstSlide == 1) {
+        slideContainer.style.fontSize = slide.styling.fontSize;
+        slideContainer.style.fontFamily = slide.styling.fontFamily;
+        slideContainer.style.backgroundColor = slide.styling.backgroundColor;
+        slideContainer.textContent = slide.content.text;
+        firstSlide++;
+    }
 
-    newDiv.appendChild(textNode);
-
-}
-
-function displayThumbnailSlide (slide) {
-
-    document.getElementById(slide.id + "-thumbnail").addEventListener('click', function(event) {
+    document.getElementById(slide.id).addEventListener('click', function(event) {
+        slideContainer.style.fontSize = slide.styling.fontSize;
+        slideContainer.style.fontFamily = slide.styling.fontFamily;
+        slideContainer.style.backgroundColor = slide.styling.backgroundColor;
 
         slideContainer.textContent = slide.content.text;
-        slideContainer.classList.add(slide.layout);
+    })
 
-        // slideContainer.style.backgroundColor = slide.styling.backgroundColor;
-
-    });
-
-    updateStyling(slide);
-
-}
-
-// On Click, create slide and add it to slides
-createSlides.addEventListener('click', function() {
-
-    // create slide
-    let slide = {
-        id: "slide-" + slideNumberID,
-        layout: "default",
-        styling: {
-            fontSize: "default",
-            fontFamily: "default",
-            backgroundColor: "default",
-        },
-        content: {
-            text: "Placeholder" + slideNumberID,
-        }
-    };
-
-    // add slide to slides
-    slides.push(slide);
-
-    slideContainer.textContent = slide.content.text;
-    slideContainer.classList.add(slide.layout);
-
-    //create thumbnail Slide
-    createThumbnailSlide(slide);
-
-    //display thumbnail Slide in more detail
-    displayThumbnailSlide(slide);
-
-    slideNumberID++;
-
-    console.log(slides);
-
-});
-
-
+})
