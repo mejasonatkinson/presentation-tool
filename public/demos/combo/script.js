@@ -73,6 +73,8 @@ addSlide.addEventListener('click', function() {
 
     slides.push(slide);
 
+    mainSlide = slide.id;
+
     slideNumber++;
 
     createSlides();
@@ -90,5 +92,13 @@ backgroundColour.addEventListener('change', function(event) {
             createSlides();
         }
     });
+
+});
+
+const displaySlide = document.getElementById('display-slide');
+
+displaySlide.addEventListener('click', function(event) {
+
+    console.log("test");
 
 });
