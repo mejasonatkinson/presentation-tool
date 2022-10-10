@@ -97,8 +97,39 @@ backgroundColour.addEventListener('change', function(event) {
 
 const displaySlide = document.getElementById('display-slide');
 
+// const display = document.getElementById('display');
+
 displaySlide.addEventListener('click', function(event) {
 
-    console.log("test");
+    slides.forEach((object, index, array) => {
+
+        const newDiv = document.createElement("div");
+    
+        newDiv.classList.add('slide');
+        newDiv.classList.add(object.layout);
+    
+        newDiv.setAttribute('id', object.id + '-display');
+    
+        newDiv.style.backgroundColor = object.styling.backgroundColor;
+    
+        newDiv.appendChild(document.createTextNode(object.content.text));
+    
+        if(index != 0) {
+            newDiv.style.display = 'none';
+        }
+
+        newDiv.addEventListener('click', function() {
+            if (slides.length == (index+1)) {
+                // slides[0].style.display = 'flex'; // no working?
+                newDiv.style.display = 'none';
+            } else {
+                newDiv.style.display = 'none';
+                document.getElementById(slides[(index+1)].id + '-display').style.display = 'flex'; // no working?
+            }
+        })
+
+        document.getElementById('display').appendChild(newDiv);
+   
+    });
 
 });
