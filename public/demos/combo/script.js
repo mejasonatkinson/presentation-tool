@@ -97,8 +97,6 @@ backgroundColour.addEventListener('change', function(event) {
 
 const displaySlide = document.getElementById('display-slide');
 
-// const display = document.getElementById('display');
-
 displaySlide.addEventListener('click', function(event) {
 
     slides.forEach((object, index, array) => {
@@ -119,13 +117,8 @@ displaySlide.addEventListener('click', function(event) {
         }
 
         newDiv.addEventListener('click', function() {
-            if (slides.length == (index+1)) {
-                // slides[0].style.display = 'flex'; // no working?
                 newDiv.style.display = 'none';
-            } else {
-                newDiv.style.display = 'none';
-                document.getElementById(slides[(index+1)].id + '-display').style.display = 'flex'; // no working?
-            }
+                document.getElementById(slides[(index+1)].id + '-display').style.display = 'flex';
         })
 
         document.getElementById('display').appendChild(newDiv);
