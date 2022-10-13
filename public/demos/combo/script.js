@@ -155,6 +155,8 @@ const displaySlide = document.getElementById('display-slide');
 // @NOTE this is very similar to the create function above
 displaySlide.addEventListener('click', function(event) {
 
+    document.getElementById('display').style.display = 'block';
+
     // for each object, in the slides array
     slides.forEach((object, index, array) => {
 
